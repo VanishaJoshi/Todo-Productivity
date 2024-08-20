@@ -5,26 +5,29 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import NavBar from './NavBar'
 import Header from './Header';
 import CalendarComponent from './Calender';
-import KanbanBoard from './kanban';
+
+import App1 from './App1';
+
+import './App.css'
+import TaskList1 from './TaskList1';
+
+
 
 function App() {
   return (
+    
     <Router>
-      <div>
+      <div className="container">
         <NavBar />
         <Routes>
-          <Route path="/" element=
-          {
-          <>  
-          <div>
-              <Header style={{ marginLeft: '0px' }}/>
-              <CalendarComponent style={{ marginLeft: '20px' }} />
-            </div>
+        <Route path="/" element={<Header />} />
+        <Route path="/streak" element={<CalendarComponent />} />
+       
+        <Route path="/kanban" element={<App1/>} />
+        <Route path="/progress" element={<TaskList1/>} />
            
            
-           </>
-          } />
-          <Route path="/kanban" element={<KanbanBoard />} />
+          
           
           
         </Routes>

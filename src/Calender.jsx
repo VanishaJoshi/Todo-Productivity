@@ -4,7 +4,9 @@ import  { useState } from 'react';
 import Calendar from 'react-calendar';
 import './styles.css'
 
+
 function CalendarComponent() {
+  
   const [date, setDate] = useState(new Date());
 
   const onChange = (date) => {
