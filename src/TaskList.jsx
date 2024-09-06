@@ -7,22 +7,23 @@ const TaskList = () => {
 
   const addTask = () => {
     if (newTask) {
-      setTasks([...tasks, { name: newTask, progress: 0 }]);
+      setTasks([...tasks, { id: Date.now(), name: newTask, progress: 0 }]);
       setNewTask('');
     }
   };
+  
 
-  const incrementProgress = (index) => {
-    setTasks(tasks.map((task, i) =>
-      i === index
+  const incrementProgress = (id) => {
+    setTasks(tasks.map((task) =>
+      task.id === id
         ? { ...task, progress: Math.min(task.progress + 10, 100) }
         : task
     ));
   };
-
-  const decrementProgress = (index) => {
-    setTasks(tasks.map((task, i) =>
-      i === index
+  
+  const decrementProgress = (id) => {
+    setTasks(tasks.map((task) =>
+      task.id === id
         ? { ...task, progress: Math.max(task.progress - 10, 0) }
         : task
     ));
@@ -59,10 +60,10 @@ const TaskList = () => {
                     <h3>{task.name}</h3>
                     <ProgressComponent completed={task.progress} />
                     <div style={{ display: 'flex', gap: '10px' }}>
-                      <button onClick={() => incrementProgress(index)} style={buttonStyle}>
+                      <button onClick={() => incrementProgress(task.id)} style={buttonStyle}>
                         Increase Progress
                       </button>
-                      <button onClick={() => decrementProgress(index)} style={buttonStyle}>
+                      <button onClick={() => decrementProgress(task.id)} style={buttonStyle}>
                         Decrease Progress
                       </button>
                     </div>

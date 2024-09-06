@@ -121,8 +121,8 @@ const Header = () => {
   return (
     
     <div className="App">
-      <h1>My Todos</h1>
-      <p>Average Streak Score: {calculateStreakScore()} hours</p> {/* Display streak score */}
+      <h1><pre>         My Todos   </pre></h1>
+      <p><h3>Average Streak Score: {calculateStreakScore()} hours {/* Display streak score */}</h3></p>
       
       <div className="todo-wrapper">
         <div className="todo-input">
